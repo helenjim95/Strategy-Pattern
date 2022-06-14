@@ -19,7 +19,6 @@ public class Context {
         if (book.isEmpty() || book.size() == 1) {
             return true;
         }
-
         Iterator<Chapter> iter = book.iterator();
         Chapter current, previous = iter.next();
         while (iter.hasNext()) {
