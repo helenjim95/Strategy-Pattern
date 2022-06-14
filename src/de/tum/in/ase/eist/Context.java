@@ -1,6 +1,5 @@
 package de.tum.in.ase.eist;
 
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -9,7 +8,7 @@ public class Context {
     private List<Chapter> book;
     private SearchStrategy searchAlgorithm;
 
-    public Context() {}
+    public Context() { }
 
     public List<Chapter> getBook() { return book; }
 

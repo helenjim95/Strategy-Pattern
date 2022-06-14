@@ -1,7 +1,5 @@
 package de.tum.in.ase.eist;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class BinarySearch implements SearchStrategy {
