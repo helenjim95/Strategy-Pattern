@@ -1,7 +1,5 @@
 package de.tum.in.ase.eist;
 
-import java.sql.Connection;
-
 public class Policy {
 
     private Context context;
