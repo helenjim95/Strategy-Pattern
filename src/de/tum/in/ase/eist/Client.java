@@ -7,15 +7,15 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 public final class Client {
-	// TODO 1.1: Create a new class LinearSearch and implement the performSearch
+	// 1.1: Create a new class LinearSearch and implement the performSearch
 	// method according to the problem statement on Artemis
-	// TODO 1.2: Create a new class BinarySearch and implement the performSearch
+	// 1.2: Create a new class BinarySearch and implement the performSearch
 	// method according to the problem statement on Artemis
-	// TODO 2.1: Create a SearchStrategy interface according to the UML class
+	// 2.1: Create a SearchStrategy interface according to the UML class
 	// diagram and make the search algorithms implement this interface.
-	// TODO 2.2: Create and implement a Context class according to the UML class
+	// 2.2: Create and implement a Context class according to the UML class
 	// diagram
-	// TODO 2.3: Create and implement a Policy class as described in the problem
+	// 2.3: Create and implement a Policy class as described in the problem
 	// statement
 
 	private static final int BOOK_MIN_SIZE = 5;
@@ -31,17 +31,20 @@ public final class Client {
 	 * Add code to demonstrate your implementation here.
 	 */
 	public static void main(String[] args) {
-		// TODO 7: Init Context and Policy
+		// 7: Init Context and Policy
+		Context context = new Context();
+		Policy policy = new Policy(context);
+
 
 		// Run 10 times to simulate different search strategies
 		for (int i = 0; i < NUMBER_OF_SIMULATIONS; i++) {
-			// TODO 8: Create a list of book entries using the method createRandomBook
-
-			// TODO 9: Configure Context
-
+			// 8: Create a list of book entries using the method createRandomBook
+			List<Chapter> book = createRandomBook();
+			// 9: Configure Context
+			policy.configure();
 			String chapterToSearch = createChapters(1).get(0);
-			// TODO 10: Search for chapter in book and store the result in pageNumber
-			int pageNumber = -1;
+			// 10: Search for chapter in book and store the result in pageNumber
+			int pageNumber = context.search(chapterToSearch);
 			System.out.println("Corresponding page for " + chapterToSearch + ": " + pageNumber);
 		}
 	}
