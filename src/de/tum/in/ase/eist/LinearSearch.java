@@ -5,16 +5,13 @@ import java.util.List;
 public class LinearSearch implements SearchStrategy {
 
     public int performSearch(List<Chapter> book, String name) {
-        boolean isFound = false;
+        int pageNumber = -1;
         for (Chapter chapter : book) {
-            if (chapter.getName().equals(name)) {
-                isFound = true;
-                return chapter.getPageNumber();
+            if (chapter.getName().equalsIgnoreCase(name)) {
+                pageNumber = chapter.getPageNumber();
+                break;
             }
         }
-        if (!isFound) {
-            return -1;
-        }
-        return 0;
+        return pageNumber;
     }
 }

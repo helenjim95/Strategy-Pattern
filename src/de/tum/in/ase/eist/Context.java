@@ -1,6 +1,5 @@
 package de.tum.in.ase.eist;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Context {
@@ -16,7 +15,7 @@ public class Context {
 
     public boolean isChaptersSortedByName() {
         boolean isSorted = true;
-        if (book.isEmpty() || book.size() == 1) {
+        if (book == null || book.size() <= 1) {
             isSorted = true;
         } else {
             for (int i = 0; i < book.size() - 1; i++) {

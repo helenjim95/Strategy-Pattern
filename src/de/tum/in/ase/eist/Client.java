@@ -38,9 +38,10 @@ public final class Client {
 		// Run 10 times to simulate different search strategies
 		for (int i = 0; i < NUMBER_OF_SIMULATIONS; i++) {
 			// 8: Create a list of book entries using the method createRandomBook
-			createRandomBook();
+			List<Chapter> book = createRandomBook();
 			// 9: Configure Context
 			policy.configure();
+			context.setBook(book);
 			String chapterToSearch = createChapters(1).get(0);
 			// 10: Search for chapter in book and store the result in pageNumber
 			int pageNumber = context.search(chapterToSearch);
