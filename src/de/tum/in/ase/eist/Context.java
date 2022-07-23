@@ -31,16 +31,17 @@ public class Context {
     }
 
     public int search(String name) {
+        if (isChaptersSortedByName()) {
+            setSearchAlgorithm(new BinarySearch());
+        } else {
+            setSearchAlgorithm(new LinearSearch());
+        }
         return this.searchAlgorithm.performSearch(book, name);
     }
 
     public SearchStrategy getSearchAlgorithm() { return searchAlgorithm; }
-    public void setSearchAlgorithm() {
-        if (isChaptersSortedByName()) {
-            this.searchAlgorithm = new BinarySearch();
-        } else {
-            this.searchAlgorithm = new LinearSearch();
-        }
+    public void setSearchAlgorithm(SearchStrategy searchAlgorithm) {
+        this.searchAlgorithm = searchAlgorithm;
     }
 
 }
