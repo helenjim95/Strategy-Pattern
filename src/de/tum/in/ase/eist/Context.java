@@ -15,19 +15,18 @@ public class Context {
     public void setBook(List<Chapter> book) { this.book = book; }
 
     public boolean isChaptersSortedByName() {
-        boolean isSorted = false;
+        boolean isSorted = true;
         if (book.isEmpty() || book.size() == 1) {
             isSorted = true;
-        }
-        Iterator<Chapter> iter = book.iterator();
-        Chapter previous = iter.next();
-        Chapter current;
-        while (iter.hasNext()) {
-            current = iter.next();
-            if (previous.getName().compareTo(current.getName()) > 0) {
-                isSorted = false;
+        } else {
+            for (int i = 0; i < book.size() - 1; i++) {
+                Chapter current = book.get(i);
+                Chapter next = book.get(i + 1);
+                if (current.getName().compareTo(next.getName()) > 0) {
+                    isSorted = false;
+                    break;
+                }
             }
-            previous = current;
         }
         return isSorted;
     }
