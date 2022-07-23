@@ -5,6 +5,7 @@ import java.util.List;
 public class BinarySearch implements SearchStrategy {
 
     public int performSearch(List<Chapter> book, String name) {
+        System.out.println("performing Binary Search");
         int arraySize = 0;
         if (book != null) {
             arraySize = book.size();

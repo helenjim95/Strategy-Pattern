@@ -63,6 +63,7 @@ public final class Client {
 		boolean sorted = randomIntegerWithin(0, 1) == 0;
 		if (sorted) {
 			book.sort(Comparator.comparing(Chapter::getName));
+//			System.out.println("The book is sorted");
 		}
 		return book;
 	}
