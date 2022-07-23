@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
+
+//TODO: Client class
 public final class Client {
 	// 1.1: Create a new class LinearSearch and implement the performSearch
 	// method according to the problem statement on Artemis
@@ -31,7 +33,7 @@ public final class Client {
 	 * Add code to demonstrate your implementation here.
 	 */
 	public static void main(String[] args) {
-		// 7: Init Context and Policy
+		// TODO: 7: Initialize Context and Policy
 		Context context = new Context();
 		Policy policy = new Policy(context);
 
@@ -39,11 +41,12 @@ public final class Client {
 		for (int i = 0; i < NUMBER_OF_SIMULATIONS; i++) {
 			// 8: Create a list of book entries using the method createRandomBook
 			List<Chapter> book = createRandomBook();
-			// 9: Configure Context
+			// TODO: 9: Configure Context
 			policy.configure();
 			context.setBook(book);
 			String chapterToSearch = createChapters(1).get(0);
-			// 10: Search for chapter in book and store the result in pageNumber
+			// TODO: delegate method calls to context instnace
+			//  10: Search for chapter in book and store the result in pageNumber
 			int pageNumber = context.search(chapterToSearch);
 			System.out.println("Corresponding page for " + chapterToSearch + ": " + pageNumber);
 		}
