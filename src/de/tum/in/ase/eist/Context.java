@@ -15,8 +15,9 @@ public class Context {
     public void setBook(List<Chapter> book) { this.book = book; }
 
     public boolean isChaptersSortedByName() {
+        boolean isSorted = false;
         if (book.isEmpty() || book.size() == 1) {
-            return true;
+            isSorted = true;
         }
         Iterator<Chapter> iter = book.iterator();
         Chapter previous = iter.next();
@@ -24,26 +25,25 @@ public class Context {
         while (iter.hasNext()) {
             current = iter.next();
             if (previous.getName().compareTo(current.getName()) > 0) {
-                return false;
+                isSorted = false;
             }
             previous = current;
         }
-        return true;
+        return isSorted;
     }
 
     public int search(String name) {
         if (!isChaptersSortedByName()) {
-            LinearSearch linearSearch = new LinearSearch();
-            return linearSearch.performSearch(book, name);
+            setSearchAlgorithm(new LinearSearch());
         } else {
-            BinarySearch binarySearch = new BinarySearch();
-            return binarySearch.performSearch(book, name);
+            setSearchAlgorithm(new BinarySearch());
         }
+        return searchAlgorithm.performSearch(book, name);
     }
 
     public SearchStrategy getSearchAlgorithm() { return searchAlgorithm; }
     public void setSearchAlgorithm(SearchStrategy searchStrategy) {
-        searchAlgorithm = searchStrategy;
+        this.searchAlgorithm = searchStrategy;
     }
 
 }

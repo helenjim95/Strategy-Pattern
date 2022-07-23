@@ -35,7 +35,6 @@ public final class Client {
 		Context context = new Context();
 		Policy policy = new Policy(context);
 
-
 		// Run 10 times to simulate different search strategies
 		for (int i = 0; i < NUMBER_OF_SIMULATIONS; i++) {
 			// 8: Create a list of book entries using the method createRandomBook
