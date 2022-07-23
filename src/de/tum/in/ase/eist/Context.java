@@ -31,11 +31,6 @@ public class Context {
     }
 
     public int search(String name) {
-        if (isChaptersSortedByName()) {
-            setSearchAlgorithm(new BinarySearch());
-        } else {
-            setSearchAlgorithm(new LinearSearch());
-        }
         return this.searchAlgorithm.performSearch(book, name);
     }
 
