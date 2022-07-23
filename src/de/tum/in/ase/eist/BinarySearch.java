@@ -9,6 +9,7 @@ public class BinarySearch implements SearchStrategy {
         int lowerBound = 0;
         int upperBound = arraySize - 1;
         boolean isFound = false;
+        int pageNumber = 0;
 
         while (!isFound) {
             if (upperBound < lowerBound) {
@@ -17,7 +18,7 @@ public class BinarySearch implements SearchStrategy {
             int midPoint = lowerBound + (upperBound - lowerBound) / 2;
             if (book.get(midPoint).getName().equals(name)) {
                 isFound = true;
-                return book.get(midPoint).getPageNumber();
+                pageNumber = book.get(midPoint).getPageNumber();
             } else {
                 if (book.get(midPoint).getName().charAt(0) < name.charAt(0)) {
                     lowerBound = midPoint + 1;
@@ -27,6 +28,6 @@ public class BinarySearch implements SearchStrategy {
                 }
             }
         }
-        return 0;
+        return pageNumber;
     }
 }
