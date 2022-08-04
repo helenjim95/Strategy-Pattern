@@ -12,8 +12,6 @@ public class BinarySearch implements SearchStrategy {
         }
         int lowerBound = 0;
         int upperBound = arraySize - 1;
-        boolean isFound = false;
-        int pageNumber = -1;
 
         while (upperBound >= lowerBound) {
             int midPoint = lowerBound + (upperBound - lowerBound) / 2;
@@ -25,6 +23,6 @@ public class BinarySearch implements SearchStrategy {
                     upperBound = midPoint - 1;
             }
         }
-        return 0;
+        return -1;
     }
 }

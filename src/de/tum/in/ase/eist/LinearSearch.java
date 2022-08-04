@@ -13,6 +13,6 @@ public class LinearSearch implements SearchStrategy {
                 return chapter.getPageNumber();
             }
         }
-        return 0;
+        return -1;
     }
 }

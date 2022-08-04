@@ -17,7 +17,6 @@ public class Context {
     public void setBook(List<Chapter> book) { this.book = book; }
 
     public boolean isChaptersSortedByName() {
-        boolean isSorted = true;
         for (int i = 0; i < book.size() - 1; i++) {
             Chapter current = book.get(i);
             Chapter next = book.get(i + 1);
