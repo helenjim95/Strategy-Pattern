@@ -15,24 +15,16 @@ public class BinarySearch implements SearchStrategy {
         boolean isFound = false;
         int pageNumber = -1;
 
-        while (!isFound) {
-            if (upperBound < lowerBound) {
-                break;
+        while (upperBound >= lowerBound) {
+            int midPoint = lowerBound + (upperBound - lowerBound) / 2;
+            if (book.get(midPoint).getName().equalsIgnoreCase(name)) {
+                return book.get(midPoint).getPageNumber();
+            } else if (book.get(midPoint).getName().compareTo(name) < 0) {
+                    lowerBound = midPoint + 1;
             } else {
-                int midPoint = lowerBound + (upperBound - lowerBound) / 2;
-                if (book.get(midPoint).getName().equalsIgnoreCase(name)) {
-                    pageNumber = book.get(midPoint).getPageNumber();
-                    isFound = true;
-                    break;
-                } else {
-                    if (book.get(midPoint).getName().charAt(0) < name.charAt(0)) {
-                        lowerBound = midPoint + 1;
-                    } else if (book.get(midPoint).getName().charAt(0) >= name.charAt(0)) {
-                        upperBound = midPoint - 1;
-                    }
-                }
+                    upperBound = midPoint - 1;
             }
         }
-        return pageNumber;
+        return 0;
     }
 }

@@ -8,13 +8,11 @@ public class LinearSearch implements SearchStrategy {
 //    TODO: implement method body
     public int performSearch(List<Chapter> book, String name) {
         System.out.println("performing Linear Search");
-        int pageNumber = -1;
         for (Chapter chapter : book) {
             if (chapter.getName().equalsIgnoreCase(name)) {
-                pageNumber = chapter.getPageNumber();
-                break;
+                return chapter.getPageNumber();
             }
         }
-        return pageNumber;
+        return 0;
     }
 }

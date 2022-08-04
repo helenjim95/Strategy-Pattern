@@ -12,25 +12,20 @@ public class Context {
     public Context() { }
 
 //    TODO: define an interface which lets the strategy access its data.
-    public List<Chapter> getBook() { return book; }
+    public List<Chapter> getBook() { return this.book; }
 
     public void setBook(List<Chapter> book) { this.book = book; }
 
     public boolean isChaptersSortedByName() {
         boolean isSorted = true;
-        if (book == null || book.size() <= 1) {
-            isSorted = true;
-        } else {
-            for (int i = 0; i < book.size() - 1; i++) {
-                Chapter current = book.get(i);
-                Chapter next = book.get(i + 1);
-                if (current.getName().compareTo(next.getName()) > 0) {
-                    isSorted = false;
-                    break;
-                }
+        for (int i = 0; i < book.size() - 1; i++) {
+            Chapter current = book.get(i);
+            Chapter next = book.get(i + 1);
+            if (current.getName().compareTo(next.getName()) > 0) {
+                return false;
             }
         }
-        return isSorted;
+        return true;
     }
 
 //    TODO: Delegate method calls to strategy object.
@@ -38,7 +33,7 @@ public class Context {
         return this.searchAlgorithm.performSearch(book, name);
     }
 
-    public SearchStrategy getSearchAlgorithm() { return searchAlgorithm; }
+    public SearchStrategy getSearchAlgorithm() { return this.searchAlgorithm; }
 
 //    TODO: setter for replacing values of the field strategy object.
     public void setSearchAlgorithm(SearchStrategy searchAlgorithm) {

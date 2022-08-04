@@ -12,15 +12,10 @@ public class Policy {
 
 //    TODO: Configure which strategy to use in conditional statement
     public void configure() {
-        if (context.isChaptersSortedByName()) {
-            context.setSearchAlgorithm(new BinarySearch());
+        if (this.context.isChaptersSortedByName()) {
+            this.context.setSearchAlgorithm(new BinarySearch());
         } else {
-            context.setSearchAlgorithm(new LinearSearch());
+            this.context.setSearchAlgorithm(new LinearSearch());
         }
     }
-
-    public Context getContext() { return context; }
-
-    public void setContext(Context context) { this.context = context; }
-
 }
